@@ -130,3 +130,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Storages and data
+data/
+storage/
