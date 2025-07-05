@@ -27,7 +27,7 @@ DATA_DIR = Path("data")
 STORAGE_DIR = Path("storage")
 DATA_DIR.mkdir(exist_ok=True)
 STORAGE_DIR.mkdir(exist_ok=True)
-st.set_page_config(page_title="Tender Extraction & PDF Table App", layout="wide")
+st.set_page_config(page_title="File Extraction & PDF Table App", layout="wide")
 
 Settings.llm = Groq(model="llama-3.3-70b-versatile", api_key=os.getenv("GROQ_API_KEY"))
 Settings.embed_model = HuggingFaceEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
@@ -66,10 +66,10 @@ def load_index(storage_dir: Path):
     return load_index_from_storage(ctx)
 
 # --- TABS for two main functionalities ---
-tab1, tab2 = st.tabs(["📑 Tender Extraction Q&A (RAG)", "🗃️ PDF Table Extractor"])
+tab1, tab2 = st.tabs(["Q&A (RAG)", "🗃️ PDF Table Extractor"])
 
 with tab1:
-    st.title("📑 Tender Extraction Q&A – Modern RAG (Groq + LlamaIndex)")
+    st.title("WTF - What the File! (Groq + LlamaIndex)")
     st.sidebar.header("Upload & Settings")
     uploaded_files = st.sidebar.file_uploader(
         "Upload ZIP / PDF / XLSX / CSV / DOCX / TXT",
@@ -138,7 +138,7 @@ with tab1:
         except Exception as e:
             st.error(f"Failed to load index: {e}")
 
-    st.header("Ask about your tender files")
+    st.header("Ask about your files")
     st.markdown("> **Tip:** For best results, try asking: `Copy the full table under Clause 3.5 Pre-Qualification Criteria from the document.`")
 
     with st.form("query_form"):
