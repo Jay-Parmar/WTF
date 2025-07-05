@@ -64,7 +64,7 @@ pip install -r requirements.txt
 
 ### 4. Run it
 ```bash
-python app.py
+streamlit run app.py
 ```
 
 The chatbot will start. You can ask it questions about the file.
